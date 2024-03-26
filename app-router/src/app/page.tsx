@@ -1,13 +1,18 @@
-import { Form } from "./form";
+import Link from "next/link";
+import { Form } from "./components/form";
+import { Suspense } from "react";
+import Todo from "./components/todo";
+import Loading from "./loading";
 
 export default async function Home() {
-  const todo = await fetch("http://localhost:3001/api/todo", {
-    next: { tags: ["todo"] },
-  }).then((res) => res.json());
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return (
     <div style={{ padding: "8px" }}>
-      <p style={{ fontWeight: "bold", margin: "8px 0" }}>{todo?.title}</p>
+      <Suspense fallback={<Loading color="green" size={40} />}>
+        <Todo />
+      </Suspense>
       <Form />
+      <Link href="/news">ニュースを見る</Link>
     </div>
   );
 }

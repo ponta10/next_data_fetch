@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent } from "react";
-import updateTodo from "./actions/updateTodo";
+import updateTodo from "../actions/updateTodo";
 
 export const Form = () => {
   const handleUpdateTodo = async (event: FormEvent<HTMLFormElement>) => {
