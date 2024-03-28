@@ -1,17 +1,8 @@
-"use client";
-
-import { FormEvent } from "react";
 import updateTodo from "../actions/updateTodo";
 
 export const Form = () => {
-  const handleUpdateTodo = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-
-    updateTodo(data);
-  };
   return (
-    <form onSubmit={handleUpdateTodo}>
+    <form  action={updateTodo}>
       <label htmlFor="title">タイトルを入力してください</label>
       <br />
       <input
