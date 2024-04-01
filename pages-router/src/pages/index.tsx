@@ -22,6 +22,7 @@ export default function Home({ todo }: { todo: Todo }) {
 
 export async function getServerSideProps() {
   const data = await getTodo();
+  console.log("get Todo!");
   const todo = JSON.parse(JSON.stringify(data));
   return {
     props: {
